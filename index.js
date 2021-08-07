@@ -1,7 +1,7 @@
 const r = document.getElementById("rock");
 const p = document.getElementById("paper");
 const s = document.getElementById("Scissor");
-const values = ["Rock", "Paper", "Scissor"];
+const values = ["Rock✊🏻", "Paper🖐🏻", "Scissor✌🏻"];
 const user = document.getElementById("user");
 const comp = document.getElementById("pc");
 let userselection = "";
@@ -34,9 +34,9 @@ function game(userselection){
   if (userselection === pcselection) {
     msg = "Oops! it's a tie😃";
   } else if (
-    (userselection === "Rock" && pcselection === "Scissor") ||
-    (userselection === "Paper" && pcselection === "Rock") ||
-    (userselection === "Scissor" && pcselection === "Paper")
+    (userselection === "Rock✊🏻" && pcselection === "Scissor✌🏻") ||
+    (userselection === "Paper🖐🏻" && pcselection === "Rock✊🏻") ||
+    (userselection === "Scissor✌🏻" && pcselection === "Paper🖐🏻")
   ) {
     msg = "Hurrah ! You won🥳";
   } else {
