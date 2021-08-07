@@ -1,43 +1,46 @@
 const r = document.getElementById("rock");
 const p = document.getElementById("paper");
 const s = document.getElementById("Scissor");
-const values = ["Rock✊🏻", "Paper🖐🏻", "Scissor✌🏻"];
-const pc = Math.floor(Math.random() * 3);
+const values = ["Rock", "Paper", "Scissor"];
 const user = document.getElementById("user");
-const comp = document.getElementById('pc');
+const comp = document.getElementById("pc");
 let userselection = "";
-let pcselection = values[pc];
-let result = document.getElementById('msg');
+let pcselection = "";
+let result = document.getElementById("msg");
+let msg = "";
 
-
-r.addEventListener("click", function () {
+r.addEventListener("click", function(){
   userselection = r.textContent;
-  user.textContent = `Your choice is: ${userselection}`;
-  comp.textContent = `Pc's choice is: ${pcselection}`;
-  result.textContent = win();
+  game(userselection);
 });
 
-p.addEventListener("click", function () {
+p.addEventListener("click", function(){
   userselection = p.textContent;
-  user.textContent = `Your choice is: ${userselection}`;
-  comp.textContent = `Pc's choice is: ${pcselection}`;
-  result.textContent = win();
+  game(userselection);
 });
 
-s.addEventListener("click", function () {
+s.addEventListener("click", function(){
   userselection = s.textContent;
-  user.textContent = `Your choice is: ${userselection}`;
-  comp.textContent = `Pc's choice is: ${pcselection}`;
-  result.textContent = win();
+  game(userselection);
 });
 
-
-function win(){
- if(userselection === pcselection ){
- return "Oops! it's a tie😃";
-}else if (userselection === "Rock✊🏻" && pcselection  === "Scissor✌🏻" || userselection === "Paper🖐🏻" && pcselection  === "Rock✊🏻" || userselection === "Scissor✌🏻" && pcselection  === "Paper🖐🏻" ) {
-  return 'Hurrah ! You won🥳';
-}else{
-  return "Pc won the game😬";
-}
+function game(userselection){
+  let pc = Math.floor(Math.random() * 3);
+  pcselection = values[pc];
+  user.textContent = `Your choice is: ${userselection}`;
+  comp.textContent = `Pc's choice is: ${pcselection}`;
+  console.log(pcselection);
+  console.log(userselection);
+  if (userselection === pcselection) {
+    msg = "Oops! it's a tie😃";
+  } else if (
+    (userselection === "Rock" && pcselection === "Scissor") ||
+    (userselection === "Paper" && pcselection === "Rock") ||
+    (userselection === "Scissor" && pcselection === "Paper")
+  ) {
+    msg = "Hurrah ! You won🥳";
+  } else {
+    msg = "Pc won the game😬";
+  }
+  result.textContent = msg;  
 }
